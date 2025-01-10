@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSS Feed</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            color: #1a73e8;
+            margin-bottom: 30px;
+        }
+
+        .feed-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            margin-top: 20px;
+        }
+
+        .feed-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 350px;
+            transition: transform 0.3s ease;
+        }
+
+        .feed-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feed-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid #1a73e8;
+        }
+
+        .feed-item h2 {
+            font-size: 1.8rem;
+            color: #333;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .feed-item p {
+            padding: 0 15px 15px;
+            text-align: center;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .feed-item a {
+            display: inline-block;
+            background-color: #1a73e8;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin: 15px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .feed-item a:hover {
+            background-color: #155a8a;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .feed-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .feed-item h2 {
+                font-size: 1.6rem;
+            }
+
+            .feed-item p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Latest Feed</h1>
+    <div class="feed-container">
+        {% for feed in feeds %}
+        <div class="feed-item">
+            <img src="{{ feed.image_path }}" alt="{{ feed.title }}" />
+            <h2>{{ feed.title }}</h2>
+            <p>{{ feed.caption }}</p>
+            <p><a href="{{ feed.link }}">Read More...</a></p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

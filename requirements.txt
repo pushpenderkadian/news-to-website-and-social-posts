@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+jinja2
+pymongo
+feedparser
+pyshorteners
+requests
+python-dotenv
+pyngrok
