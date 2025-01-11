@@ -8,6 +8,7 @@ from app.feed_processor import process_feed_item
 from social_media.instagram_post import post_to_instagram
 from pyngrok import ngrok
 import threading, time, uvicorn
+from config.settings import NGROK_AUTH_TOKEN
 
 
 app = FastAPI()
@@ -42,6 +43,7 @@ if __name__ == "__main__" :
 
     # Start ngrok
     global ngrok_url
+    ngrok.set_auth_token(NGROK_AUTH_TOKEN)
     ngrok_url = ngrok.connect(8000).public_url
     print("Public URL to access the app:", ngrok_url)
 

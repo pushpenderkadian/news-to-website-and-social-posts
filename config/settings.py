@@ -22,3 +22,6 @@ IMAGE_OUTPUT_DIR = "static/uploads"
 
 # MongoDB settings
 MGDB=os.getenv("MGDB")
+
+# ngrok settings
+NGROK_AUTH_TOKEN = os.getenv("NGROK_AUTH_TOKEN")
