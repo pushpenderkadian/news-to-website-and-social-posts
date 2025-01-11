@@ -110,6 +110,7 @@ project/
    ```env
    STABILITY_AI_API_KEY=<your_stability_ai_api_key>
    ```
+Also added huggingface api to generate images using that as stability ai is paid and have just 25 credits for free.
 
 ### OpenAI
 1. Visit [OpenAI API](https://platform.openai.com/).
