@@ -1,4 +1,4 @@
-from app.utils.stability_ai import generate_image
+from app.utils.stability_ai import generate_image, generate_image_huggingface
 from app.utils.url_shortener import shorten_url
 from database import save_feed_data
 from app.utils.text_processor import openai_text_generator, huggingface_text_generator
@@ -18,7 +18,8 @@ def process_feed_item(feed_item):
     
     # Generate image
     prompt = f"Generate an image based on: {feed_item['title']}"
-    image_path = generate_image(prompt)
+    # image_path = generate_image(prompt)
+    image_path = generate_image_huggingface(prompt)
     print(feed_item)
     # Save to database for web display
     save_feed_data({

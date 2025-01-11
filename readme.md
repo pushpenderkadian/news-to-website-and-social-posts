@@ -149,6 +149,14 @@ project/
    INSTAGRAM_USERID=<your_instagram_user_id>
    ```
 
+
+### NGROK Setup
+1. Visit [NGROK Website](https://dashboard.ngrok.com/).
+2. Sign up or log in.
+3. from left menu goto Your Authtoken and copy your token
+4. Add the key to `.env`:
+   ```env
+   NGROK_AUTH_TOKEN=<your_NGROK_Auth_key>
 ---
 
 ## Usage
