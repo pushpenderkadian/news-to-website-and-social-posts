@@ -67,13 +67,15 @@ This project automates fetching RSS feed items, processing them, and posting to 
    ```
    This will:
    - Start the FastAPI server.
-   - Start a background task for fetching feeds.
+   - Start a background task for fetching feeds.(fetch for new feeds every hour)
    - Provide an Ngrok URL for public access.
 
 6. **Access the Application:**
    Use the Ngrok public URL printed in the console to access the web interface.
 
 ---
+
+## Currently this program is configured to fetch only 1 latest post and check in the Database if it is present or not. If you want to configure it for more or all just change the count at "line no 20" in file "config/settings.py". More posts at a time may lead to burn higher money as it will make more calls 
 
 ## File Structure
 

@@ -33,7 +33,11 @@ def cron_for_fetching_feeds():
     while True:
         new_feed = fetch_latest_rss_feed()
         for feed_item in new_feed:
-            feed_data=process_feed_item(feed_item)
+            try:
+                feed_data=process_feed_item(feed_item)
+            except Exception as e:
+                print("Error in processing feed item:", e)
+                continue
             post_to_instagram(ngrok_url+"/"+feed_data["image_path"], feed_data["caption"])
         time.sleep(3600)
 
